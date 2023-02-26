@@ -1,12 +1,12 @@
 """
     This program sends a message to a queue on the RabbitMQ server.
-    We want to stream information from a smart smoker. Read one value every half minute.
+    We want to stream help desk ticket requests. 
+
     Author: Eden Anderson
-    Date: 2/11/2023
-    Based on Module 4 Version 3 .py program
+    Date: 2/26/2023
 """
 
-# Eden Anderson / 2.11.23 / Creating a Producer
+# Eden Anderson / 2.126.23 / Final Project Producer
 
 import pika
 import sys
@@ -26,7 +26,7 @@ def offer_rabbitmq_admin_site():
         print()
 
 # define variables
-input_file = open("Help_Desk.csv", "r")
+input_file = open("Help_Desk_Tickets.csv", "r")
 queue_name = "help_queue"
 
 def send_message(host: str, queue_name: str, message: str):
@@ -110,7 +110,7 @@ if __name__ == "__main__":
     # get the message from the command line
     # if no arguments are provided, use the default message
     # use the join method to convert the list of arguments into a string
-    # join by the space character inside the quotes
+    # join by the space character inside the quotes  
     message = " ".join(sys.argv[1:]) or "Final Project....."
     # send the message to the queue
     send_message("localhost","help_queue",message)

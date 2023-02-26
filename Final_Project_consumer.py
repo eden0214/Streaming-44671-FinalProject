@@ -7,7 +7,7 @@
 
 """
 
-# Eden Anderson / 2.26.23 / Final Project
+# Eden Anderson / 2.26.23 / Final Project Consumer
 
 import pika
 import sys

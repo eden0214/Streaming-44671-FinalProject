@@ -32,7 +32,7 @@ Our help desk system receives incoming messages based on when they are generated
 # We want to stream help desk tickets from consumers as they are submitted. 
 Read values every 5 seconds. (sleep_secs = 5)
 
-Help_Desk.csv has 3 columns:
+Help_Desk_Tickets.csv has 3 columns:
 
 [0] Date_Time = Date-time stamp for the help ticket submission
 
@@ -41,8 +41,8 @@ Help_Desk.csv has 3 columns:
 [2] Help_Request = Letter corresponding to the message choice of customer
 
 # Requirements
-* RabbitMQ server running - Verified working (see screenshot)
-* pika installed in your active environment - DONE
+* RabbitMQ server running
+* pika installed in your active environment
 
 # Prerequisites
 * RabbitMQ server
@@ -89,29 +89,29 @@ Here are screenshots of my running programs:
 # Producer
 
 The producer streams the data every five seconds (even though the time stamp is 5 minutes):
-![Window Example](FP1.png)
+![Window Example](FP_1P.png)
 
 # Producer & 1 Worker
 
 Having one worker means that worker gets all the help desk tickets:
-![Window Example](FP1C.png)
+![Window Example](FP_1C.png)
 
 # Producer & 2 Workers
 
 Introducing a second worker creates an alternating distribution:
-![Window Example](FP2C.png)
+![Window Example](FP_2C.png)
 
 # Producer & 3 Workers
 
 When we introduce a third worker, the round-robin distribution expands to a third screen:
-![Window Example](FP3C.png)
+![Window Example](FP_3C.png)
 
 # Producer & Back to 2 Workers
 
 If one worker were to leave in the middle of streaming data, this is how the change might appear:
-![Window Example](FPB2C.png)
+![Window Example](FP_B_2C.png)
 
 # RabbitMQ Displays Help Desk Queue
 
 IF one worker were to leave in the middle of streaming data, this is how the change might appear:
-![Window Example](FPRMQ.png)
+![Window Example](FP_RMQ.png)
